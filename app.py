@@ -10,5 +10,8 @@ extractObj = Extractor('data.csv',6)
 @app.route('/')
 def hello_world():  # put application's code here
     return extractObj.extract()
+@app.route('/j1')
+def hello_world1():
+    return extractObj.extract1()
 if __name__ == '__main__':
     app.run()
