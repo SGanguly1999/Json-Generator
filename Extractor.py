@@ -14,5 +14,8 @@ class Extractor:
         numOfObs = random.randint(1,self.maxObs)
         sliced_data = self.data.iloc[self.currRow:self.currRow+numOfObs]
         self.currRow += numOfObs
-        dict = sliced_data.to_dict()
-        return json.dumps(dict)
+        json_res = []
+        for index, row in sliced_data.iterrows():
+            json_res.append(row.to_dict())
+        return json.dumps(json_res)
+
