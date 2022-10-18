@@ -27,4 +27,8 @@ class Extractor:
         for col in sliced_data:
             dict[col]=list(sliced_data[col])
         return json.dumps(dict)
-
+    def extract2(self):
+        numOfObs = random.randint(1, self.maxObs)
+        sliced_data = self.data.iloc[self.currRow:self.currRow + numOfObs]
+        self.currRow += numOfObs
+        return json.dumps(sliced_data.to_dict())
